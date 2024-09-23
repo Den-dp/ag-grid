@@ -1,5 +1,5 @@
 import { ClientSideRowModelModule } from '@ag-grid-community/client-side-row-model';
-import { GridApi, GridOptions, createGrid } from '@ag-grid-community/core';
+import { GridApi, GridOptions, type RowGroupingDisplayType, createGrid } from '@ag-grid-community/core';
 import { ModuleRegistry } from '@ag-grid-community/core';
 import { RowGroupingModule } from '@ag-grid-enterprise/row-grouping';
 
@@ -13,7 +13,9 @@ const gridOptions: GridOptions<IOlympicData> = {
         { field: 'year', rowGroup: true, hide: true },
         { field: 'athlete' },
         { field: 'sport' },
-        { field: 'total' },
+        { field: 'gold' },
+        { field: 'silver' },
+        { field: 'bronze' },
     ],
     defaultColDef: {
         flex: 1,
@@ -22,10 +24,14 @@ const gridOptions: GridOptions<IOlympicData> = {
     autoGroupColumnDef: {
         minWidth: 200,
     },
-    // optional as 'singleColumn' is the default group display type
-    groupDisplayType: 'singleColumn',
     groupDefaultExpanded: 1,
 };
+
+function onDisplayTypeChange() {
+    const displayType = (document.querySelector('#input-display-type') as HTMLSelectElement)
+        .value as RowGroupingDisplayType;
+    gridApi!.setGridOption('groupDisplayType', displayType);
+}
 
 // setup the grid after the page has finished loading
 document.addEventListener('DOMContentLoaded', function () {

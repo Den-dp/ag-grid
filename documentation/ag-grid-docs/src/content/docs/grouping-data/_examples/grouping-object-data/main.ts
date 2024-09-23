@@ -3,17 +3,26 @@ import { GridApi, GridOptions, createGrid } from '@ag-grid-community/core';
 import { ModuleRegistry } from '@ag-grid-community/core';
 import { RowGroupingModule } from '@ag-grid-enterprise/row-grouping';
 
+import { getData } from './data';
+
 ModuleRegistry.registerModules([ClientSideRowModelModule, RowGroupingModule]);
 
-let gridApi: GridApi<IOlympicData>;
+let gridApi: GridApi;
 
-const gridOptions: GridOptions<IOlympicData> = {
+const gridOptions: GridOptions = {
     columnDefs: [
-        { field: 'country', rowGroup: true, hide: true },
-        { field: 'year', rowGroup: true, hide: true },
-        { field: 'athlete' },
-        { field: 'sport' },
-        { field: 'total' },
+        {
+            field: 'athlete',
+            rowGroup: true,
+            hide: true,
+            keyCreator: (params) => params.value.id,
+            valueFormatter: (params) => params.value.name,
+        },
+        { field: 'country' },
+        { field: 'year' },
+        { field: 'gold' },
+        { field: 'silver' },
+        { field: 'bronze' },
     ],
     defaultColDef: {
         flex: 1,
@@ -22,17 +31,11 @@ const gridOptions: GridOptions<IOlympicData> = {
     autoGroupColumnDef: {
         minWidth: 200,
     },
-    // optional as 'singleColumn' is the default group display type
-    groupDisplayType: 'singleColumn',
-    groupDefaultExpanded: 1,
+    rowData: getData(),
 };
 
 // setup the grid after the page has finished loading
 document.addEventListener('DOMContentLoaded', function () {
     var gridDiv = document.querySelector<HTMLElement>('#myGrid')!;
     gridApi = createGrid(gridDiv, gridOptions);
-
-    fetch('https://www.ag-grid.com/example-assets/olympic-winners.json')
-        .then((response) => response.json())
-        .then((data: IOlympicData[]) => gridApi!.setGridOption('rowData', data));
 });

@@ -161,7 +161,9 @@
                             {
                                 "title": "React Best Practices",
                                 "path": "react-hooks",
-                                "frameworks": ["react"]
+                                "frameworks": [
+                                    "react"
+                                ]
                             }
                         ]
                     },
@@ -179,7 +181,9 @@
                             {
                                 "title": "Testing Async",
                                 "path": "testing-async",
-                                "frameworks": ["angular"]
+                                "frameworks": [
+                                    "angular"
+                                ]
                             },
                             {
                                 "title": "Compatibility",
@@ -196,7 +200,9 @@
                             {
                                 "title": "Installation",
                                 "path": "installation",
-                                "frameworks": ["javascript"]
+                                "frameworks": [
+                                    "javascript"
+                                ]
                             }
                         ]
                     }
@@ -902,7 +908,12 @@
                                 "isEnterprise": true
                             },
                             {
-                                "title": "Display Types",
+                                "title": "Grouping Data",
+                                "path": "grouping-data",
+                                "isEnterprise": true
+                            },
+                            {
+                                "title": "Group Structure",
                                 "path": "grouping-display-types",
                                 "isEnterprise": true,
                                 "items": [
@@ -922,51 +933,24 @@
                                         "isEnterprise": true
                                     },
                                     {
-                                        "title": "Custom Group",
-                                        "path": "grouping-custom-group-columns",
-                                        "isEnterprise": true
-                                    }
-                                ]
-                            },
-                            {
-                                "title": "Group Cell Component",
-                                "path": "group-expand-collapse-comp",
-                                "isEnterprise": true,
-                                "items": [
-                                    {
-                                        "title": "Provided Component",
+                                        "title": "Group Cell Component",
                                         "path": "group-cell-renderer",
                                         "isEnterprise": true
-                                    },
-                                    {
-                                        "title": "Custom Component",
-                                        "path": "group-custom-group-comp",
-                                        "isEnterprise": true
                                     }
                                 ]
                             },
                             {
-                                "title": "Row Group Panel",
-                                "path": "grouping-group-panel",
+                                "title": "Expanding Groups",
+                                "path": "grouping-opening-groups",
                                 "isEnterprise": true
                             },
                             {
-                                "title": "Locking Group Columns",
-                                "path": "grouping-locking-group-columns",
+                                "title": "Hierarchy Selection",
+                                "path": "grouping-row-selection",
                                 "isEnterprise": true
                             },
                             {
-                                "title": "Group Order",
-                                "path": "grouping-group-order",
-                                "isEnterprise": true
-                            },
-                            {
-                                "title": "Sorting Groups",
-                                "path": "grouping-sorting",
-                                "isEnterprise": true
-                            },
-                            {
-                                "title": "Filtering Groups",
+                                "title": "Filtering",
                                 "path": "grouping-filtering",
                                 "isEnterprise": true,
                                 "items": [
@@ -983,24 +967,56 @@
                                 ]
                             },
                             {
-                                "title": "Selecting Groups",
-                                "path": "grouping-row-selection",
+                                "title": "Sorting",
+                                "path": "grouping-sorting",
                                 "isEnterprise": true
                             },
                             {
-                                "title": "Opening Groups",
-                                "path": "grouping-opening-groups",
-                                "isEnterprise": true
-                            },
-                            {
-                                "title": "Complex Objects",
-                                "path": "grouping-complex-objects",
-                                "isEnterprise": true
-                            },
-                            {
-                                "title": "Unbalanced Groups",
-                                "path": "grouping-unbalanced-groups",
-                                "isEnterprise": true
+                                "title": "To Be Removed",
+                                "items": [
+                                    {
+                                        "title": "Group Cell Component",
+                                        "path": "group-expand-collapse-comp",
+                                        "isEnterprise": true,
+                                        "items": [
+                                            {
+                                                "title": "Provided Component",
+                                                "path": "group-cell-renderer",
+                                                "isEnterprise": true
+                                            },
+                                            {
+                                                "title": "Custom Component",
+                                                "path": "group-custom-group-comp",
+                                                "isEnterprise": true
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "title": "Row Group Panel",
+                                        "path": "grouping-group-panel",
+                                        "isEnterprise": true
+                                    },
+                                    {
+                                        "title": "Locking Group Columns",
+                                        "path": "grouping-locking-group-columns",
+                                        "isEnterprise": true
+                                    },
+                                    {
+                                        "title": "Group Order",
+                                        "path": "grouping-group-order",
+                                        "isEnterprise": true
+                                    },
+                                    {
+                                        "title": "Complex Objects",
+                                        "path": "grouping-complex-objects",
+                                        "isEnterprise": true
+                                    },
+                                    {
+                                        "title": "Unbalanced Groups",
+                                        "path": "grouping-unbalanced-groups",
+                                        "isEnterprise": true
+                                    }
+                                ]
                             }
                         ]
                     },
@@ -1471,7 +1487,9 @@
                             {
                                 "title": "NgZone",
                                 "path": "angular-ngzone",
-                                "frameworks": ["angular"]
+                                "frameworks": [
+                                    "angular"
+                                ]
                             }
                         ]
                     }
@@ -1539,12 +1557,16 @@
                             {
                                 "title": "Best Practices",
                                 "path": "framework-data-flow",
-                                "frameworks": ["vue"]
+                                "frameworks": [
+                                    "vue"
+                                ]
                             },
                             {
                                 "title": "Vue2 Tutorial",
                                 "path": "vue2",
-                                "frameworks": ["vue"]
+                                "frameworks": [
+                                    "vue"
+                                ]
                             },
                             {
                                 "title": "Aligned Grids",

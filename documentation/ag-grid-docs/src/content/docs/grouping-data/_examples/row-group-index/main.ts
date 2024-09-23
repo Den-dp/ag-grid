@@ -9,11 +9,13 @@ let gridApi: GridApi<IOlympicData>;
 
 const gridOptions: GridOptions<IOlympicData> = {
     columnDefs: [
-        { field: 'country', rowGroup: true, hide: true },
-        { field: 'year', rowGroup: true, hide: true },
+        { field: 'country', rowGroupIndex: 1, hide: true },
+        { field: 'year', rowGroupIndex: 0, hide: true },
         { field: 'athlete' },
         { field: 'sport' },
-        { field: 'total' },
+        { field: 'gold' },
+        { field: 'silver' },
+        { field: 'bronze' },
     ],
     defaultColDef: {
         flex: 1,
@@ -22,8 +24,6 @@ const gridOptions: GridOptions<IOlympicData> = {
     autoGroupColumnDef: {
         minWidth: 200,
     },
-    // optional as 'singleColumn' is the default group display type
-    groupDisplayType: 'singleColumn',
     groupDefaultExpanded: 1,
 };
 

@@ -20,11 +20,15 @@ const gridOptions: GridOptions<IOlympicData> = {
         minWidth: 100,
     },
     autoGroupColumnDef: {
-        minWidth: 200,
+        headerName: 'My Group',
+        minWidth: 220,
+        cellRendererParams: {
+            suppressCount: true,
+            checkbox: true,
+        },
     },
     // optional as 'singleColumn' is the default group display type
     groupDisplayType: 'singleColumn',
-    groupDefaultExpanded: 1,
 };
 
 // setup the grid after the page has finished loading
