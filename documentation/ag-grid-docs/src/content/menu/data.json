@@ -931,13 +931,13 @@
                                         "title": "Group Rows",
                                         "path": "grouping-group-rows",
                                         "isEnterprise": true
-                                    },
-                                    {
-                                        "title": "Group Cell Component",
-                                        "path": "group-cell-renderer",
-                                        "isEnterprise": true
                                     }
                                 ]
+                            },
+                            {
+                                "title": "Row Group Panel",
+                                "path": "grouping-group-panel",
+                                "isEnterprise": true
                             },
                             {
                                 "title": "Expanding Groups",
@@ -952,19 +952,7 @@
                             {
                                 "title": "Filtering",
                                 "path": "grouping-filtering",
-                                "isEnterprise": true,
-                                "items": [
-                                    {
-                                        "title": "Group Column Filter",
-                                        "path": "grouping-column-filter",
-                                        "isEnterprise": true
-                                    },
-                                    {
-                                        "title": "Custom Filtering",
-                                        "path": "grouping-custom-filtering",
-                                        "isEnterprise": true
-                                    }
-                                ]
+                                "isEnterprise": true
                             },
                             {
                                 "title": "Sorting",
@@ -987,6 +975,23 @@
                                             {
                                                 "title": "Custom Component",
                                                 "path": "group-custom-group-comp",
+                                                "isEnterprise": true
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "title": "Filtering",
+                                        "path": "grouping-filtering",
+                                        "isEnterprise": true,
+                                        "items": [
+                                            {
+                                                "title": "Group Column Filter",
+                                                "path": "grouping-column-filter",
+                                                "isEnterprise": true
+                                            },
+                                            {
+                                                "title": "Custom Filtering",
+                                                "path": "grouping-custom-filtering",
                                                 "isEnterprise": true
                                             }
                                         ]

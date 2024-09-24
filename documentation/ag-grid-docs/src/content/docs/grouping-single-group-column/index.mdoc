@@ -6,7 +6,7 @@ Display the Group Structure with a single generated column in the grid.
 
 {% gridExampleRunner title="Enabling Single Group Column" name="enabling-single-group-column"  exampleHeight=540 /%}
 
-## Enabling Single Group Column
+## Enabling a Single Group Column
 
 The example above demonstrates that both `country` and `year` are grouped. Only a single group column is used to
 display the group value cells.
@@ -20,14 +20,14 @@ const gridOptions = {
 }
 ```
 
-## Group Column Configuration
+## Configuring the Column
 
-The Single Group Column is a generated when row grouping is present, and can be configured via the `autoGroupColumnDef` grid
+The Single Group Column is added to the grid when row grouping is present, and can be configured via the `autoGroupColumnDef` grid
 option.
 
 {% gridExampleRunner title="Single Group Column Configuration" name="single-group-column-configuration"  exampleHeight=515 /%}
 
-The example above uses the configuration demonstrated below to change the generated columns header name and apply a minimum width.
+The example above uses the configuration demonstrated below to change the columns header name and apply a minimum width.
 It also [Configures the Group Cell Component](./group-cell-renderer/) using the `cellRendererParams` option to add checkboxes and remove
 the count from each row group.
 
@@ -44,8 +44,62 @@ const gridOptions = {
 }
 ```
 
+## Group Cell Renderer
+The column uses the `agGroupCellRenderer` component to display the group information, as well as the chevron control
+for expanding and collapsing rows.
 
-## Removing Single Children
+This can be configured with several [Group Renderer Properties](./grouping-single-group-column/#configurable-properties-reference) using
+the `autoGroupColumnDef` property `cellRendererParams`. The example below removes the row count and enables checkboxes for row selection.
+
+{% gridExampleRunner title="Group Cell Renderer Configuration" name="renderer-config-group-cell" /%}
+
+This demonstrates the following configuration:
+```{% frameworkTransform=true %}
+const gridOptions = {
+    autoGroupColumnDef: {
+        cellRendererParams: {
+            suppressCount: true,
+            checkbox: true,
+        }
+    },
+}
+```
+
+### Configurable Options
+
+{% interfaceDocumentation interfaceName="IGroupCellRendererParams" overrideSrc="group-cell-renderer/group-cell-renderer.json" config={ "description": "" } /%}
+
+### Inner Renderer
+
+When using the group cell renderer, the `agGroupCellRenderer` component will inherit the grouped columns renderer and display this inside of the group cell,
+adjacent to any configured checkboxes, cell count, and the expand/collapse chevron control.
+
+This inner renderer can be overridden with a [Custom Cell Component](./component-cell-renderer/) by setting the `innerRenderer` and `innerRendererParams` properties
+on the `cellRendererParams` configuration.
+
+{% gridExampleRunner title="Group Cell Renderer Configuration" name="renderer-config-inner" /%}
+
+The example above uses the following configuration to provide a custom inner renderer to the group column:
+```{% frameworkTransform=true %}
+const gridOptions = {
+    autoGroupColumnDef: {
+        cellRendererParams: {
+            innerRenderer: InnerRenderer,
+            innerRendererParams: {foo: 'bar'},
+        }
+    },
+}
+```
+
+### Custom Cell Renderer
+
+The Group Cell Renderer can be replaced with a [Custom Cell Component](./component-cell-renderer/) by setting the `cellRenderer` property on the `autoGroupColumnDef`
+configuration.
+
+{% gridExampleRunner title="Custom Group Cell Renderer" name="renderer-config-custom" /%}
+
+
+## Hiding Parents of Individual Rows
 
 Groups with only a single child can be hidden from the grid by setting the `groupRemoveSingleChildren` grid option to `true`. To only remove
 groups with a single leaf child, instead set `groupRemoveLowestSingleChildren` to `true`.
@@ -73,73 +127,6 @@ Filtering does not impact what groups get removed, only groups containing a sing
 {% note %}
 The properties `groupRemoveSingleChildren`, `groupRemoveLowestSingleChildren` and `groupHideOpenParents` are mutually exclusive.
 {% /note %}
-
-## Group Cell Component
-The generated `autoGroupColumn` uses the `agGroupCellRenderer` component to display the group information, as well as the chevron control
-for expanding and collapsing rows. 
-
-### Configuration
-
-The Group Cell Renderer can be configured to show or hide the row count, enable checkboxes for selection and other changes by setting
-the `autoGroupColumnDef` property `cellRendererParams`.
-
-{% gridExampleRunner title="Group Cell Renderer Configuration" name="renderer-config-group-cell" /%}
-
-The above example demonstrates the following configuration:
-```{% frameworkTransform=true %}
-const gridOptions = {
-    autoGroupColumnDef: {
-        cellRendererParams: {
-            suppressCount: true,
-            checkbox: true,
-        }
-    },
-}
-```
-
-For a full list of configuration options, refer to the
-[Configurable Properties Reference](./grouping-single-group-column/#configurable-properties-reference) section.
-
-### Configurable Properties Reference
-
-{% interfaceDocumentation interfaceName="IGroupCellRendererParams" overrideSrc="group-cell-renderer/group-cell-renderer.json" config={ "description": "" } /%}
-
-### Inner Renderers
-
-When using the group cell renderer, the `agGroupCellRenderer` component will inherit the grouped columns renderer and display this inside of the group cell,
-adjacent to any configured checkboxes, cell count, and the expand/collapse chevron control.
-
-This inner renderer can be overridden with a [Custom Cell Component](./component-cell-renderer/) by setting the `innerRenderer` and `innerRendererParams` properties
-on the `cellRendererParams` configuration.
-
-{% gridExampleRunner title="Group Cell Renderer Configuration" name="renderer-config-inner" /%}
-
-The example above uses the following configuration to provide a custom inner renderer to the group column:
-```{% frameworkTransform=true %}
-const gridOptions = {
-    autoGroupColumnDef: {
-        cellRendererParams: {
-            innerRenderer: InnerRenderer,
-            innerRendererParams: {foo: 'bar'},
-        }
-    },
-}
-```
-
-### Custom Component
-
-The Group Cell Renderer can be replaced with a [Custom Cell Component](./component-cell-renderer/) by setting the `cellRenderer` property on the `autoGroupColumnDef`
-configuration.
-
-{% gridExampleRunner title="Custom Group Cell Renderer" name="renderer-config-custom" /%}
-
-### Dynamic Component Selection
-
-The Group Cell Renderer can be replaced with a [Custom Cell Component](./component-cell-renderer/) by setting the `cellRenderer` property on the `autoGroupColumnDef` configuration.
-
-{% gridExampleRunner title="Custom Group Cell Renderer" name="renderer-config-dynamic" /%}
-
-Refer to the [Cell Components](./component-cell-renderer/) documentation for information on how to create custom cell renderers.
 
 ## Next Up
 
