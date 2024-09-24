@@ -93,11 +93,14 @@ const gridOptions = {
 
 ### Custom Cell Renderer
 
-The Group Cell Renderer can be replaced with a [Custom Cell Component](./component-cell-renderer/) by setting the `cellRenderer` property on the `autoGroupColumnDef`
+The Group Cell Renderer can be entirely replaced with a [Custom Cell Component](./component-cell-renderer/) by setting the `cellRenderer` property on the `autoGroupColumnDef`
 configuration.
 
 {% gridExampleRunner title="Custom Group Cell Renderer" name="renderer-config-custom" /%}
 
+{% note %}
+It is also possible to [Dynamically Select Cell Renderers](./component-cell-renderer/#dynamic-component-selection).
+{% /note %}
 
 ## Hiding Parents of Individual Rows
 
